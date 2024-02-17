@@ -1,6 +1,7 @@
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-
-const Course = ({course}) => {
+const Course = ({ course, handleSelect }) => {
     const { name, price, img, description, credit_hour, instructor } = course;
     return ( 
         <div>
@@ -9,7 +10,7 @@ const Course = ({course}) => {
              bg-base-100 shadow-xl p-5 ">
             <figure><img src={img} alt="" /></figure>
             <div className="card-body">
-                <h2 className="card-title">{name}</h2>
+                <h2 className="card-title font-bold   ">{name}</h2>
                 <p>{description}</p>
                 <h3 className="text-center font-semibold">Instructor:{instructor}</h3>
                 <div className="flex justify-between">
@@ -22,7 +23,8 @@ const Course = ({course}) => {
                     </svg> Credit Hour:{credit_hour}hr
                 </div>
                 <div className="card-actions">
-                    <button onClick={() => handleSelect(course)} className="w-full btn btn-primary">Select</button>
+                    <button onClick={() => handleSelect(course)} className="w-full bg-blue-600 rounded-lg    btn btn-primary">Select</button>
+                    <ToastContainer />
                     
                 </div>
             </div>
